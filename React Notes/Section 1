@@ -1,0 +1,35 @@
+Section 1: Course Content
+------------------------
+
+What is React.js?(reactjs.org)
+
+React - 
+Javascript Library for building user interfaces
+Client side Javascript Library
+
+Example: Netflix
+
+Why react instead of just Javascript/
+
+with just javascript we need to write code for each step we need to describe that and is called imperative approach
+(describe step by step)
+
+with react we can divide into small building blocks called components and hence reuse those components and will be 
+handled by the Javascript Library react.
+
+React can be used as a SPA where the server sends only 1 HTML page and we can use that to control the UI and 
+other functionailities
+
+Extra functionaility that need sot be added while using React we can import other 3rd party libraries
+
+Alternatives of React: Angular (Framework) Vue.js 
+
+
+extersnions in VSC:
+
+1) git lens  -
+2) prettier - change the format after installing it 
+3) material icon theme - 
+
+
+

@@ -1,0 +1,44 @@
+React Basics and Working with Components
+------------------------------------------
+
+component - reusable building blocks
+
+Declarative approach to create component -> using states to give React the final desired target
+
+create-react-app (tool) - bunch of configuration files ready for use
+
+Example: 
+
+npx create-react-app my-app 
+
+localhost:3000
+
+index.js is the fle that gets executed in React
+
+import ReactDOM from 'react-dom';
+
+JSX - JavaScript XML
+
+1) Build your custom react components with a captial letter so that React is able to 
+differentiate with HTML element and React component element.
+
+2) return statement accept only one root element
+
+3) instead of class we use className in JSX 
+
+4) Instead of JSX:
+
+import React from 'react';
+
+React.createElement('div' , {className: 'test'}, );
+
+first arg - element name 
+second arg - attributes object
+third - sibling element creation
+
+thats the reason we need a root element in JSX as from the above code without a root element we cant return more 
+than one value.
+
+
+
+

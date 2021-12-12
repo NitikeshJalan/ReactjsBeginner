@@ -1,0 +1,46 @@
+React State and Working with events
+-------------------------------------
+
+we do not give parenthesis on events in JSX as JS will execute the Handlers
+
+Example: 
+
+    const clickedHndler = () => {
+        console.log("Clicked");
+    }
+
+    return (
+        <Card className="expense-item">
+            <ExpenseDate date={props.date}></ExpenseDate>
+            <div className="expense-item__description">
+                <h2 className="expense-item h2">{props.title}</h2>
+            </div>
+            <div className="expense-item__price">Rs {props.amount} /-</div>
+            <button onClick={clickedHndler}>Change Title</button>
+        </Card>
+    );
+}
+
+useState is a function to be imported from react library;
+
+Example: 
+
+ const [title, changeTitle] = useState(props.title);
+
+    const clickedHandler = () => {
+        changeTitle('Updated');
+    }
+
+useState returns an array where the first value is the origianl value assigned 
+and the second is the state maintainenece function to change/update the value
+
+the state maintainenece/updation functions re calls the component function again hence updates the value
+
+the state maintainenece function does not changes the value at a go instead schedules the change of state.
+
+useState is per component instance basis and manages different states for same components called more than once
+
+React takes the intial state value in useState for the first time and keeps a track and when the component function
+is recalled it doesnt initializes the value with props value again instead updates the value passed 
+by the state updation function call.
+

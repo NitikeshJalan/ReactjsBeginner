@@ -1,0 +1,155 @@
+JavaScript Refresher
+--------------------
+
+1) let & const
+
+var - 
+    const - to create a constant value which never change
+    let - new var type  (same as var)
+
+jsbin.org - for javascript practice 
+
+2) Arrow Functions
+
+const myfunc = () => {
+
+}
+no more issues with this keyword using array keyword...
+
+const myfunc = (name,age) => {
+    console.log(name,age);
+}
+
+myfunc('Nitikesh',27);
+
+3) Exports and Imports
+
+Two types of exports - 
+
+    i) default export - 
+        import persion from 'person.js';
+        import prs from 'person.js';
+    ii) named export - 
+        import {baseData} from 'utility.js';
+        import {baseData as base} from 'utility.js';
+        import * as bundled from 'utility.js';  ---> then use bundled.baseData / bundled.secondData
+
+ 4) Classes
+
+ class Person 
+ {
+     name = 'niti';
+ }
+
+const per = new Person();
+classes supports inheritance as class Person extends master 
+supper() - is used to initialize the parent class constructor.
+
+5) Classes properties and methods:
+
+Remove of constructors and converting the methods to arrow functions as ES7 or next generation JS.
+
+6) Spread and Rest Operator: ... depends where we 
+
+Spread Operator: use it to split array and object properties
+
+newarray = [...oldarray, 1,2]
+newobject = {...oldobject, newProp: 5};
+
+Reat Operator: used to merge a list of function arguments list into an array 
+
+function sortArgs(...args) {
+    return args.sort();
+}
+
+Example of Rest: 
+
+const myFilter(...args) => {
+    returns args.filter(el => el === 1);
+}
+
+console.log(myFilter(1,2,3));   // [1]
+
+7) Destructuring: Extract array/object properties and store in variables 
+
+[a,b] = ['Hello', 'Max'];
+console.log(a) // Hello
+console.log(b) // Max
+
+{name} = {name: 'nitikesh', age: 27};
+
+console.log(name); //nitikesh
+console.log(age); //undefined
+
+const numbers = [1,2,3];
+[num1, num2] = numbers // num1 = 1, num2 = 2;
+
+[num1, , num2] = numbers // num1 = 1, num2 = 3;
+
+8) Reference and Primitive types: 
+
+Objects/Arrays are reference types in JS
+
+in order to copy immutable way use the Spread operator.
+
+9) Array Functions
+
+const numbers = [1,2,3];
+
+const newArray = numbers.map( (num) => {
+    return num*2;
+});
+
+map() -> accpets a function , returns a new array, works on each element in the array
+
+newArray = [2,4,6];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

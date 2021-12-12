@@ -1,0 +1,18 @@
+Difference between Framework and Library?
+
+Library
+1) It is a set of reusable functions 
+2) We can call a function in the library and then the control is returned.
+3) It can be easily incorporated into an exisiting project and add functionaility
+4) Program linking and binding process are some of the core features of a library.
+
+Example: React , Jquery
+
+
+Framework
+1) It is a piece of code that actually dictates the archietechture of the project
+2) In framework we never call a function instead the framework calls our code.
+3) It cannot be added seamlessly into an already exisiting project
+4) Build and deploy applications are best suited for a framework characteristic
+
+Example: Angular
