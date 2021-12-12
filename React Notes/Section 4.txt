@@ -44,3 +44,9 @@ React takes the intial state value in useState for the first time and keeps a tr
 is recalled it doesnt initializes the value with props value again instead updates the value passed 
 by the state updation function call.
 
+Always good to maintain seperate states for different variables
+As in one state we dependent on previous state when we want to update state
+
+Note: 
+
+If we want to prevent the page to reload on submit then use event.preventDefault();
