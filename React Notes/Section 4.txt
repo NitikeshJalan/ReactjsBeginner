@@ -50,3 +50,27 @@ As in one state we dependent on previous state when we want to update state
 Note: 
 
 If we want to prevent the page to reload on submit then use event.preventDefault();
+
+Passing data:
+-------------
+You can accept a function via props and call it from inside the lower-level (child) 
+component to then trigger some action in the parent component (which passed the function).
+
+
+Parent to child : using props
+child to Parent: utilizing custom props from one component to another.
+between siblings: communication not possible
+
+Lifting state up:
+-----------------
+
+passing data from one component to another 
+(in a way passing state of data from one component to another).
+
+Lift the stae upto a component which has access to both components:
+which creates data & which needs the data
+
+Dumb/stateless components - That do no deal.manage any state 
+statefull components: which manages the states.
+
+Section 4: https://github.com/academind/react-complete-guide-code/tree/04-react-state-events
