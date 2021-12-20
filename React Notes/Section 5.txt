@@ -1,0 +1,15 @@
+Course Content
+---------------
+
+key - to make react uniquely identify whn we have an array of list items and 
+avoid react to re render the entire html
+
+Example:
+
+      {props.items?.map((expense,index) => (
+          <ExpenseItem  
+          key={expense.id}
+          title={expense.title} 
+          amount={expense.amount} 
+          date={expense.date} />
+          ))}
