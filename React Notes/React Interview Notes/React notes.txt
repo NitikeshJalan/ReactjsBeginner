@@ -37,5 +37,191 @@ Ans - JSX or JavaScript XML is a XML like syntax extension to ECMAScript.It prov
 for the React.createElement() function giving us expressiveness of JavaScript along with HTML like 
 template syntax.
 
+Example:
+
+class App extends React.Component {
+    render() {
+        return (
+            <div>
+            <h1>{'Welcome to React'}</h1>
+            </div>
+        )
+    }
+}
+
+4) Difference between Element and Component in React ?
+
+Ans - 
+
+An Element is a plain object describing what we want to appear/show on the screen in terms of DOM  
+nodes or other components.
+Elements can contain other elements in their props.Creating a React element is cheap and once created 
+it is never mutated.
+
+const element  = React.createElement(
+    'div',
+    {id :'login-btn'},
+    'Login'
+)
+
+will return an object as: 
+
+{
+    type : 'div',
+    props : {
+        children: 'Login',
+        id : 'login-btn'
+    }
+}
+
+render using ReactDOM.render() as:
+
+<div id = 'login-btn'>Login</div>
+
+Components in React can be declared in several ways , it can be a class with a render() or defined as 
+a function, in both the ways it takes props as input and returns a JSX tree as output.
+
+const Button = ({onLogin}) => 
+<div id = 'login-btn' onClick ={onLogin}>Login</div>
+
+JSX gets transpiled to React.createElement() as :
+const Button = ({onLogin}) => React.createElement(
+     'div',
+    {id :'login-btn', onClick: onLogin},
+    'Login'
+)
+
+5) how to create Components in React?
+
+Ans - There are 2 possible ways to create a component in React:
+
+i) Function components: Simplest way to create a component which are pure JS functions 
+which take props object as the first parameter and return React elements:
+
+function Greeting ({message}) {
+    return <h1>{'Hello, ${message}'}</h1>
+}
+
+ii) Class Components: Uses ES6 classes to define a component 
+
+class Greeting extends React.Component {
+    render() {
+        return (
+            <h1>{'Hello, ${this.props.message}'}</h1>
+        )
+    }
+}
+
+6) When to use Class Components over Function Components?
+
+Ans - If the component uses state or lifecycle methods then it is preferred to use 
+class compponents.
+However from React 16.8 ,with addition of hooks: we can use state,lifecycle methods and other features 
+in function components as well.
+Like Error boundaries feature is still not available in function components.
+
+7) What are Pure components in React ?
+
+Ans - 
+React.PureComponent is exactly similar to React.Component except that it handles the
+shouldComponentUpdate().
+When props or state changes PureComponent will do a shallow comparison on both props and state.
+Component on the other hand doesnt compare the current props and state and will rerender the DOM
+by default when shouldComponentUpdate() is called. 
+
+8) What is state in React ?
+
+Ans -
+State of a component is an object thats holds some useful information that may change over the lifetime 
+of the component.
+
+State is used for internal communication inside a component
+State is private to the component, it is not accessible outside the component unless the owner component
+decides to pass it.
+
+class User extends React.Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            message: 'Test'
+        }
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>{this.state.message}</h1>
+            </div>
+        )
+    }
+}
+
+9) What are props in React?
+
+Ans - 
+props are input to the components.
+They are either single values or objects with a set of values that are passed to components similar to 
+HTML attributes.
+They are data passed down from parent to child components.
+i) Pass data to our component
+ii) Trigger state changes 
+iii) Use via this.props.ReactProp (custom name) inside components render().
+
+<Element ReactProp = {'1'} />
+
+this.prop.ReactProp can be used in all components created using React library.
+
+10) Difference bwteeen state and props ?
+
+Ans -
+Both props and state are plain Js objects.
+While both of them hold information that influences the output of the render() but are different in their 
+functionaility.
+props are passed to the component similar to function paramters wheres state is managed inside the 
+component similar to variables declared within the function.
+
+11) Why we should not update the state directly? 
+
+Ans - If we try to update the state direclty then it wont rerender the component 
+this.state.message = 'test';   //Wrong
+
+instead we should use this.setstate() which schedules an update on the component's state object
+and then the component re renders
+this.setstate({
+    message: 'Test'
+})
+
+12) What is purpose of the callback function as an argument to setstate() ?
+
+Ans - The callback function is invoked when setState() is finished and the component gets rerendered.
+Since it is asynchronous it is used for any post action after updating state.
+
+this.setState({
+    message: 'test'
+},
+() = > console.log('set state done');)
+
+Note: Instead of this callback function we should use the lifecycle hook.
+
+13) Difference between HTML and React event Handling
+
+Ans -
+
+i) In HTML the event name is in lowercase and in camelCase in React
+
+<button onclick = 'test()'>
+<button onClick = {test} >
+
+ii) In HTML  we can return false to prevent default behavior, use preventDefault() in React
+
+iii) In HTML we need to add () while calling a function whereas we dont require the same in React.
+
+
+
+
+
+
+
 
 
