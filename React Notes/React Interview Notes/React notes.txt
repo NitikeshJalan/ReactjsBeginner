@@ -1,0 +1,41 @@
+1) What is React? 
+
+Ans - React is an open source front end JS library which is used for binding user interfaces
+like SPA's. 
+Created by Jordan Walke, and was first deployed in 2011 
+
+Note: 
+
+Difference between Framework and Library?
+
+Library
+1) It is a set of reusable functions 
+2) We can call a function in the library and then the control is returned.
+3) It can be easily incorporated into an exisiting project and add functionaility
+4) Program linking and binding process are some of the core features of a library.
+
+Example: React , Jquery
+
+Framework
+1) It is a piece of code that actually dictates the archietechture of the project
+2) In framework we never call a function instead the framework calls our code.
+3) It cannot be added seamlessly into an already exisiting project
+4) Build and deploy applications are best suited for a framework characteristic
+
+Example: Angular
+
+2) Features of React?
+
+- Its uses VirtualDOM instead of RealDOM considering the fact that RealDOM manipulations are expensive.
+- Supports server side rendering 
+- Follows unidirectional data flow or data binding
+- Uses reusable/composable UI components to develop the view.
+
+3) What is JSX? 
+
+Ans - JSX or JavaScript XML is a XML like syntax extension to ECMAScript.It provides syntactic sugar 
+for the React.createElement() function giving us expressiveness of JavaScript along with HTML like 
+template syntax.
+
+
+
