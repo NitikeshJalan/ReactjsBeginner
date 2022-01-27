@@ -175,7 +175,7 @@ this.prop.ReactProp can be used in all components created using React library.
 10) Difference bwteeen state and props ?
 
 Ans -
-Both props and state are plain Js objects.
+Both props and state are plain JS objects.
 While both of them hold information that influences the output of the render() but are different in their 
 functionaility.
 props are passed to the component similar to function paramters wheres state is managed inside the 
@@ -217,11 +217,195 @@ ii) In HTML  we can return false to prevent default behavior, use preventDefault
 
 iii) In HTML we need to add () while calling a function whereas we dont require the same in React.
 
+14) How to bind methods or events in JSX callbacks ?
+
+Ans - 3 possible ways: 
+
+i) Binding in constructor: 
+
+class Foo extends React.Component {
+    constructor(props) {
+        super(props)
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {
+        console.log('test');
+    }
+
+    render() {
+        return <button onClick = {this.handleClick}>Click me</button>
+    }
+}
+
+ii) public class field syntax: 
+
+handleClick = () => {
+    console.log('test');
+}
+
+<button onClick={this.handleClick}>{'Click me'}</button>
+
+iii) Arrow functions in callback:
+
+handleClick() {
+    console.log('test');
+}
+
+render() {
+    return (
+        <button onClick = {() => this.handleClick()}Click me</button>
+    )
+}
+
+Note: If the callback is passed as props to child components then those components might do an
+extra rerendering.Hence not preferred in those cases.
+
+15) How to pass paramters to an event handler or callback? 
+
+Ans - 
+
+<button onClick = {() => this.handleClick(id)} />
+
+<button onClick = {this.handleClick.bind(this,id)} />
+
+<button onClick = {this.handleClick(id)} />
+
+handleClick = (id) => {
+    console.log(id);
+}
+
+16) What are synthetic events in React ?
+
+Ans - SyntheticEvent is a cross bowser wrapper around the browser's native event.
+Its API is same as the browser's native event including stopPropagation and preventDefault except 
+the event works identically across all broswers.
+
+17) What are inline condtional expressions?
+
+Ans - We can use either if statements or ternary operators available with JS to condtionally render
+expressions.Also we can embed any expressions in JSX by wrapping up them in curly braces.
+
+<h1>Hello</h1>
+{
+    messages.length && !isLogin?
+    <h1>test1</h1>
+    :
+    <h2>test2</h2>
+}
+
+18) What is "key" prop and what is its beneefits in arrays?
+
+Ans - A key is a special string attribute we should include when using array of elements.
+key prop helps React identify which items have been changed,added or deleted.
+
+const toDoItems = todos.map((todo) => 
+<li key = {todo.id}>{todo.text}</li>
+)
+
+If we dont have any unique identity in the array use index: 
+
+const toDoItems = todos.map((todo,index) => 
+<li key = {index}>{todo.text}</li>
+)
+
+Note: 
+- Using index is not recommended as if order elements changes it can have negative performance 
+- If list item is extracted as a seperate component then key should be applied on the list component 
+instead of <li> item
+- Warning message in console if key is not used.
+
+19) What is the use of refs? 
+
+Ans - The ref is used to return a reference of the element.Though they should be avoided but can act 
+useful when we need a direct access of the DOM element or an instance of the component.
+
+20) How to create refs? 
+
+Ans - 
+
+21) What are forward refs? 
+
+Ans - 
+
+22) Which is the preferred option in callback refs and findDOMNode() ?
+
+Ans - 
+
+23) Why are String refs legacy? 
+
+Ans - 
+
+24) What is VirtualDOM ?
+
+Ans - The VirtualDOM or VDOM is an in-memory representation of the RealDOM 
+The representation of the UI is kept in memory and synced with the real DOM.
+Its a step that happens between the render() being called and the display of elements on the scree,
+process known as reconciliation.
+
+25) How VirtualDOM works?
+
+Ans - 3 steps
+
+i) Whenever any underlying data changes the entire UI is rerendered in VirtualDOM representation.
+ii) The difference bwteeen the previous DOM representation and the new one is calculated.
+iii) Once the calculations are done, the RealDOM is updated with only the elements that have changed.
+
+26) Difference between ShadowDOM and VirtualDOM? 
+
+Ans - ShadowDOM is a browser technology designed primarily for scoping varibles and CSS 
+in web components.
+VirtualDOM is a concept implemeted by libraries to have a in memory representation of the RealDOM
+on top of browser API's.
+
+27) What is React Fiber? 
+
+Ans - 
 
 
+28) Main goal of react Fiber? 
+
+Ans - 
+
+29) What are controlled components?
+
+Ans - A component that controls the input elements within the forms on subsequent user input 
+is called a controlled component or every state mutation will have handler function 
 
 
+handleChange(event) {
+    this.setState({
+        value: event.target.value.toUpperCase()
+    })
+}
 
+30) What are uncontrolled components?
 
+Ans - Uncontrolled components are the ones that store their state internally and we query the DOM 
+using the ref to find its current value when we need it.
+More like traditional HTML form.
 
+class UserProfile extends React.Component {
+    constructor(props) {
+        super(props)
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.input = React.createRef();
+    }
+
+    handleSubmit(event) {
+        console.log(this.input.current.value);
+    }
+
+    render() {
+        return (
+            <form onSubmit = {this.handleSubmit}>
+                <label>
+                {'Name:'}
+                <input type = 'text' ref = {this.input}>
+                </label>
+                <input type = 'submit' value = 'Submit'>
+            </form>
+        )
+    }
+}
 
