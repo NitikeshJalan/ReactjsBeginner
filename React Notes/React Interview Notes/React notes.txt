@@ -409,3 +409,66 @@ class UserProfile extends React.Component {
     }
 }
 
+Form data is controlled by the React component in controlled components
+Form data is controlled by the DOM in uncontrolled components.
+
+31) Difference between createElement and cloneElement?
+
+Ans - JSX elements will be transpiled to React.createElement() function to create React Elements to be
+used for object representation of the UI.
+cloneElement is used to clone the element and pass it to new props.
+
+32) What is Lifting the state up in React?
+
+Ans - When several components need to share the same changing data then it is recommended
+to life the shared state up to the closest parent(ancestor)
+Means if two child components share the same data from its parent then move the state up to parent 
+instead of mainting local state in both child components.
+
+33) Different Phases of component lifecycle? 
+
+Ans - 3 distinct lifecycle phases:
+
+i) Mounting - The component is ready to mount in the browser DOM.
+Phase covers initialization from contructor(), getDerivedStateFromProps(), render() and 
+componentDidMount()
+
+ii) Updating - the component gets updated in two ways either sending the new props or updating 
+the state either using setState() or forceUpdate() 
+Phase covers getDerivedStateFromProps(), shouldComponentUpdate(), render() , getSnapshotBeforeUpdate()
+and componentDidUpdate()
+
+iii) Unmounting - The component is no more needed and gets unmounted from the browser DOM.
+Phase includes componentWillUnmount()
+
+A) Render - The component will render without any side effects and this applies for Pure Components
+In the phase React can pause,abort or restart the render
+
+B) Pre-commit - Before the component actually applies changes to the DOM, there is a moment
+that allows React to read from the DOM through getSnapshotBeforeUpdate().
+
+C) Commit - React works with the DOM and executes the final lifecycle respectively componentDidMount(),
+componentDidUpdate() & componentWillUnmount().
+
+34) What are the lifecycle methods of React?
+
+Ans - 
+
+Before 16.3
+
+i) componentWillMount() 
+ii) componentDidMount() 
+iii) componentWillReceiveProps() 
+iv) shouldComponentUpdate()
+v) componentWillUpdate()
+vi) componentDidUpdate()
+vii) componentWillUnmount()
+
+After 16.3+
+
+i) getDerivedStateFromProps()
+ii) componentDidMount()
+iii) shouldComponentUpdate()
+iv) getSnapshotBeforeUpdate()
+v) componentDidUpdate()
+vi) componentWillUnmount()
